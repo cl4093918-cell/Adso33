@@ -1,22 +1,22 @@
-const usuarioServices = require('../services/usuario.services');
+const usuarioService = require('../services/usuario.services');
 
-const crearUsuario = async (req,res) => {
-    try {
-        const usuario = await usuarioServices.crearUsuario(req.body);
-        res.status(201).json(Usuario);
-    } 
-    catch (error) {
+const crear = async (req, res)=> {
+    try{
+        const usuario = await usuarioService.crearUsuario(req.body);
+        res.status(201).json(usuario);
+    } catch(error){
         res.status(400).json({error: error.message});
     }
+
 };
 
-const listar = async (req,res) => {
-   const usuarios = await usuarioServices.listarUsuarios();
-   res.json(usuarios);
+const listar = async (req, res) => {
+    const usuarios = await usuarioService.listarUsuarios();
+    res.json(usuarios);
 };
 module.exports = {
-    crearUsuario,
-    listar,
+    crear,
+    listar
 };
         
     

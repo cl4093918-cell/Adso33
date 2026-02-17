@@ -1,7 +1,13 @@
-const usuarios = require('../models/usuario.model');
+const Usuario = require('../models/usuarios.model');
+
 const crearUsuario = async (data) => {
-    return await Usuarios.create(data);
+    return await Usuario.create(data);
+}; 
+
+const listarUsuarios = async ()=>{
+    return await Usuario.findAll();
 };
-const listarUsuarios = async () => {
-    return await Usuarios.findAll();
-}
+module.exports ={
+    crearUsuario,
+    listarUsuarios
+};
